@@ -617,14 +617,91 @@ body { font-family:var(--font); background:var(--bg); color:var(--t1); line-heig
 
 /* ── FOOTER ───────────────────────────────────── */
 
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: #0d0d0d;
+  padding: 2.5rem 0;
+}
+
+.footer-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.footer-brand-col { min-width: 180px; }
+
+.footer-logo-wrap { margin-bottom: .75rem; }
+
+.footer-motto {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--t2);
+}
+
+.footer-sub {
+  font-size: 11px;
+  font-weight: 300;
+  margin-top: .4rem;
+  color: rgba(255,255,255,.3);
+}
+
+.footer-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 1rem 3rem;
+}
+
+.footer-col-head {
+  font-size: 10px;
+  font-weight: 500;
+  margin-bottom: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: rgba(255,255,255,.35);
+}
+
+.footer-col-links {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
 .footer-link {
   font-size: 12px;
   font-weight: 300;
-  color: var(--t3);
+  color: rgba(255,255,255,.45);
   text-decoration: none;
   transition: color .2s;
 }
 .footer-link:hover { color: rgba(232,120,48,.85); }
+
+.footer-address {
+  font-size: 11px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(255,255,255,.38);
+}
+
+.footer-phone { color: rgba(255,255,255,.5); }
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255,255,255,.25);
+}
 
 /* ── SCROLL REVEAL ────────────────────────────── */
 
@@ -641,32 +718,71 @@ body { font-family:var(--font); background:var(--bg); color:var(--t1); line-heig
 
 /* ── RESPONSIVE ───────────────────────────────── */
 
+/* Tablet landscape (≤1024px) */
+@media (max-width:1024px) {
+  .globe-grid  { gap: 4rem; }
+  .about-grid  { gap: 4rem; }
+}
+
+/* Tablet (≤900px) */
 @media (max-width:900px) {
-  .sectors-grid { grid-template-columns:1fr; }
-  .about-grid   { grid-template-columns:1fr; gap:3rem; }
-  .tech-inner   { grid-template-columns:1fr; gap:0; padding:3rem 2rem; min-height:auto; }
-  .tech-content { padding-left:0; border-left:none; padding-top:2.5rem; border-top:1px solid var(--border); }
+  .sectors-grid  { grid-template-columns: 1fr; }
+  .about-grid    { grid-template-columns: 1fr; gap: 3rem; }
+  .globe-grid    { grid-template-columns: 1fr; gap: 3rem; }
+  .globe-wrap    { max-width: 420px; margin: 0 auto; }
+
+  .sectors       { padding: 5rem 0; }
+  .globe-section { padding: 5rem 0; }
+  .cta-section   { padding: 5rem 0; }
+
+  .tech-content  { padding: 5rem 0; }
+
+  .footer-nav-grid { grid-template-columns: repeat(2, auto); }
 }
 
+/* Mobile (≤768px) */
 @media (max-width:768px) {
-  .nav-links, .nav-cta { display:none; }
-  .nav-hamburger { display:flex; }
+  /* Nav */
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger       { display: flex; }
 
-  .hero-stats { flex-wrap:wrap; }
-  .stat { flex:0 0 50%; }
+  /* Hero */
+  .hero        { padding: 7rem 1.5rem 4rem; }
+  .hero-stats  { flex-wrap: wrap; }
+  .stat        { flex: 0 0 50%; }
   .stat:nth-child(2)::after,
-  .stat:nth-child(4)::after { display:none; }
+  .stat:nth-child(4)::after { display: none; }
 
-  .footer-top    { flex-direction:column; gap:2rem; text-align:center; }
-  .footer-bottom { flex-direction:column; gap:.5rem; text-align:center; }
-  .cta-inner     { padding:4rem 1.5rem; }
+  /* Sections */
+  .sectors       { padding: 4rem 0; }
+  .globe-section { padding: 4rem 0; }
+  .cta-section   { padding: 4rem 0; }
+  .about-section { padding: 4rem 0; }
 
-  .particle-canvas { display:none; }
+  .tech-content  { padding: 4rem 0; max-width: 100%; }
+
+  /* CTA */
+  .cta-inner { padding: 4rem 1.5rem; }
+
+  /* Footer */
+  .footer-nav-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+
+  /* Particles */
+  #particleCanvas { display: none; }
 }
 
+/* Mobile small (≤480px) */
 @media (max-width:480px) {
-  .hero { padding:8rem 1.25rem 4rem; }
-  .hero-actions { flex-direction:column; }
-  .stat { flex:0 0 100%; }
-  .stat::after { display:none !important; }
+  .hero          { padding: 6rem 1.25rem 3.5rem; }
+  .hero-actions  { flex-direction: column; }
+  .stat          { flex: 0 0 100%; }
+  .stat::after   { display: none !important; }
+
+  .globe-wrap    { max-width: 320px; }
+
+  .footer-body        { flex-direction: column; }
+  .footer-nav-grid    { grid-template-columns: 1fr 1fr; width: 100%; }
+  .footer-bottom      { flex-direction: column; text-align: center; }
+
+  .cta-inner { padding: 3rem 1.25rem; }
 }
