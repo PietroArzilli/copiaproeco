@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROECO — Engineering the Future, Bravely.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot"  id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="PROECO">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 72" height="36" style="display:block">
+          <circle cx="36" cy="36" r="29" fill="none" stroke="#f0eeeb" stroke-width="12"/>
+          <rect x="26" y="26" width="20" height="20" rx="1.5" fill="#e87830"/>
+          <text x="82" y="53" font-family="'Montserrat',sans-serif" font-weight="400" font-size="38" letter-spacing="2">
+            <tspan fill="#eeecea">PRO</tspan><tspan fill="#e87830">ECO</tspan>
+          </text>
+        </svg>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#sectors">Settori</a></li>
+        <li><a href="#about">Chi siamo</a></li>
+        <li><a href="#technology">Tecnologia</a></li>
+        <li><a href="#clients">Clienti</a></li>
+        <li><a href="#global">Globale</a></li>
+        <li><a href="#contact">Contatti</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Parlaci del tuo progetto</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#sectors">Settori</a>
+      <a href="#about">Chi siamo</a>
+      <a href="#technology">Tecnologia</a>
+      <a href="#clients">Clienti</a>
+      <a href="#contact">Contatti</a>
+      <a href="#contact" class="mobile-cta">Parlaci del tuo progetto →</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section class="hero" id="hero">
+
+    <!-- Particle network canvas -->
+    <canvas class="particle-canvas" id="particleCanvas"></canvas>
+
+    <!-- Background layers -->
+    <div class="hero-bg">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" crossorigin="anonymous">
+        <source src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/hero-video.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+      <div class="hero-grid"></div>
+      <!-- Drifting ambient orbs -->
+      <div class="orb orb-1" aria-hidden="true"></div>
+      <div class="orb orb-2" aria-hidden="true"></div>
+      <div class="orb orb-3" aria-hidden="true"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Parte del Gruppo Parlym
+      </div>
+
+      <h1 class="hero-headline">
+        <span class="hl-line"           data-delay="0">Engineering</span>
+        <span class="hl-line hl-accent" data-delay="1">the Future,</span>
+        <span class="hl-line"           data-delay="2">Bravely.</span>
+      </h1>
+
+      <!-- Accent line that draws itself after the headline -->
+      <div class="accent-line" aria-hidden="true"></div>
+
+      <p class="hero-sub">
+        Ingegneria multidisciplinare per Oil &amp; Gas, Chimica, Energia e Ambiente.
+        <br>Le soluzioni che altri non immaginano.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#sectors" class="btn btn-primary">Esplora la nostra expertise</a>
+        <a href="#contact" class="btn btn-ghost">Parlaci del tuo progetto →</a>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="hero-stats" id="heroStats">
+      <div class="stat">
+        <div class="stat-value">
+          <span class="stat-num" data-target="115">0</span><span class="stat-sfx">+</span>
+        </div>
+        <span class="stat-label">Ingegneri permanenti</span>
+      </div>
+      <div class="stat">
+        <div class="stat-value">
+          <span class="stat-num" data-target="25">0</span><span class="stat-sfx">+</span>
+        </div>
+        <span class="stat-label">Anni di esperienza</span>
+      </div>
+      <div class="stat">
+        <div class="stat-value">
+          <span class="stat-num" data-target="20">0</span><span class="stat-sfx">+</span>
+        </div>
+        <span class="stat-label">Paesi nel mondo</span>
+      </div>
+      <div class="stat">
+        <div class="stat-value">
+          <span class="stat-num" data-target="250">0</span><span class="stat-sfx">K</span>
+        </div>
+        <span class="stat-label">Man-hours annui</span>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       KEYWORD TICKER
+  ══════════════════════════════════════ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Oil &amp; Gas</span><span class="sep">·</span>
+      <span>Energy Transition</span><span class="sep">·</span>
+      <span>Chimica</span><span class="sep">·</span>
+      <span>Power Plants</span><span class="sep">·</span>
+      <span>Ambiente</span><span class="sep">·</span>
+      <span>Infrastrutture</span><span class="sep">·</span>
+      <span>Digital Twin 3D</span><span class="sep">·</span>
+      <span>Fire Safety</span><span class="sep">·</span>
+      <span>Offshore &amp; Onshore</span><span class="sep">·</span>
+      <span>Carbon Capture</span><span class="sep">·</span>
+      <!-- duplicate -->
+      <span>Oil &amp; Gas</span><span class="sep">·</span>
+      <span>Energy Transition</span><span class="sep">·</span>
+      <span>Chimica</span><span class="sep">·</span>
+      <span>Power Plants</span><span class="sep">·</span>
+      <span>Ambiente</span><span class="sep">·</span>
+      <span>Infrastrutture</span><span class="sep">·</span>
+      <span>Digital Twin 3D</span><span class="sep">·</span>
+      <span>Fire Safety</span><span class="sep">·</span>
+      <span>Offshore &amp; Onshore</span><span class="sep">·</span>
+      <span>Carbon Capture</span><span class="sep">·</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       CLIENT LOGOS MARQUEE
+  ══════════════════════════════════════ -->
+  <section class="clients" id="clients">
+    <div class="clients-label-wrap reveal">
+      <span class="section-label">Collaboriamo con i leader dell'industria</span>
+    </div>
+    <div class="clients-marquee">
+      <div class="clients-track">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/eni-logo.png"           alt="ENI"           loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/enel-logo.png"          alt="ENEL"          loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/saipem-logo.png"        alt="Saipem"        loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/snam-logo.png"          alt="Snam"          loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/siemens-logo.png"       alt="Siemens"       loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/technip-logo.png"       alt="Technip"       loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/totalenergies-logo.png" alt="TotalEnergies" loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/avio-logo.png"          alt="Avio"          loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/edison-logo.png"        alt="Edison"        loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/techint-logo.png"       alt="Techint"       loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/versalis-logo.png"      alt="Versalis"      loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/woodgroup-logo.png"     alt="Wood Group"    loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/itinera-logo.png"       alt="Itinera"       loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/nextchem-logo.png"      alt="NextChem"      loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/sogin-logo.png"         alt="Sogin"         loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/tea-sistemi.png"        alt="TEA Sistemi"   loading="lazy">
+        <!-- duplicate for seamless loop -->
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/eni-logo.png"           alt="ENI"           loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/enel-logo.png"          alt="ENEL"          loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/saipem-logo.png"        alt="Saipem"        loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/snam-logo.png"          alt="Snam"          loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/siemens-logo.png"       alt="Siemens"       loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/technip-logo.png"       alt="Technip"       loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/totalenergies-logo.png" alt="TotalEnergies" loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/avio-logo.png"          alt="Avio"          loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/edison-logo.png"        alt="Edison"        loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/techint-logo.png"       alt="Techint"       loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/versalis-logo.png"      alt="Versalis"      loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/woodgroup-logo.png"     alt="Wood Group"    loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/itinera-logo.png"       alt="Itinera"       loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/nextchem-logo.png"      alt="NextChem"      loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/sogin-logo.png"         alt="Sogin"         loading="lazy">
+        <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/tea-sistemi.png"        alt="TEA Sistemi"   loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTORS
+  ══════════════════════════════════════ -->
+  <section class="sectors" id="sectors">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Settori di mercato</span>
+        <h2 class="section-title">Dove operiamo</h2>
+      </div>
+      <div class="sectors-grid">
+        <div class="sector-card reveal">
+          <div class="sc-top">
+            <span class="sc-num">01</span>
+            <span class="sc-pct">40%</span>
+          </div>
+          <div class="sc-bar"><div class="sc-bar-fill" style="--w:40%"></div></div>
+          <h3>Oil &amp; Gas</h3>
+          <p>Impianti offshore e onshore, trattamento gas, terminal GNL, pipeline. Dalla concettuale all'esecutivo.</p>
+        </div>
+        <div class="sector-card reveal">
+          <div class="sc-top">
+            <span class="sc-num">02</span>
+            <span class="sc-pct">25%</span>
+          </div>
+          <div class="sc-bar"><div class="sc-bar-fill" style="--w:25%"></div></div>
+          <h3>Energy Transition &amp; Ambiente</h3>
+          <p>Carbon capture, waste-to-energy, rinnovabili e ammodernamento impianti esistenti.</p>
+        </div>
+        <div class="sector-card reveal">
+          <div class="sc-top">
+            <span class="sc-num">03</span>
+            <span class="sc-pct">20%</span>
+          </div>
+          <div class="sc-bar"><div class="sc-bar-fill" style="--w:20%"></div></div>
+          <h3>Chimica</h3>
+          <p>Impianti petrolchimici, fertilizzanti, polimeri e specialty chemicals ad alta complessità.</p>
+        </div>
+        <div class="sector-card reveal">
+          <div class="sc-top">
+            <span class="sc-num">04</span>
+            <span class="sc-pct">15%</span>
+          </div>
+          <div class="sc-bar"><div class="sc-bar-fill" style="--w:15%"></div></div>
+          <h3>Power Plants</h3>
+          <p>Centrali termoelettriche, cicli combinati, sistemi di cogenerazione e upgrading tecnologico.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       GLOBAL PRESENCE — COBE globe
+  ══════════════════════════════════════ -->
+  <section class="globe-section" id="global">
+    <div class="container">
+      <div class="globe-grid">
+
+        <div class="globe-text reveal">
+          <span class="section-label">Presenza globale</span>
+          <h2 class="globe-heading">
+            Ingegneria<br>
+            senza confini.<br>
+            <em>20+ paesi.</em>
+          </h2>
+          <p>Dalla progettazione concettuale all'esecutivo, PROECO porta la propria ingegneria in ogni angolo del pianeta — dai giacimenti del Medio Oriente alle raffinerie europee, dalle infrastrutture africane ai complessi petrolchimici asiatici.</p>
+          <div class="globe-stats">
+            <div class="gstat">
+              <span class="gstat-n">20+</span>
+              <span class="gstat-l">Paesi</span>
+            </div>
+            <div class="gstat">
+              <span class="gstat-n">160+</span>
+              <span class="gstat-l">Ingegneri totali</span>
+            </div>
+            <div class="gstat">
+              <span class="gstat-n">250K</span>
+              <span class="gstat-l">Man-hours/anno</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="globe-wrap reveal">
+          <div class="globe-container">
+            <canvas id="globe-canvas" style="display:block;width:100%;aspect-ratio:1/1;border-radius:50%;cursor:grab;touch-action:none;opacity:0;transition:opacity 1.4s ease;"></canvas>
+            <svg id="globe-svg" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;"></svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       ABOUT — con team-bg.jpg
+  ══════════════════════════════════════ -->
+  <section class="about" id="about">
+    <div class="about-bg-img" aria-hidden="true"></div>
+    <div class="about-bg-overlay" aria-hidden="true"></div>
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left reveal">
+          <span class="section-label">Chi siamo</span>
+          <h2 class="about-title">
+            Non assumiamo ingegneri<br>
+            <em>che conoscono le risposte.</em><br>
+            Assumiamo ingegneri che<br>
+            <em>fanno le domande giuste.</em>
+          </h2>
+        </div>
+        <div class="about-right reveal">
+          <p>PROECO è una società di ingegneria multidisciplinare nata con l'ambizione di affrontare i progetti che altri non osano. Parte del Gruppo Parlym, con 83% di proprietà e 17% di capitale privato.</p>
+          <p>I nostri <strong>115 ingegneri permanenti</strong> — 160 in totale — generano oltre 250.000 man-hours annui di progettazione d'eccellenza. Operiamo in 20+ paesi, su ogni tipo di impianto industriale complesso.</p>
+          <div class="about-tags">
+            <span>Ingegneria di processo</span>
+            <span>Mechanical &amp; Piping</span>
+            <span>Elettrico &amp; Strumentale</span>
+            <span>Civil &amp; Structural</span>
+            <span>Digital Twin 3D</span>
+            <span>Fire Safety Engineering</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       TECHNOLOGY — video a tutto schermo
+  ══════════════════════════════════════ -->
+  <section class="tech-teaser" id="technology">
+
+    <video class="tech-video" autoplay muted loop playsinline preload="metadata" crossorigin="anonymous">
+      <source src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/file.mp4" type="video/mp4">
+    </video>
+    <div class="tech-overlay"></div>
+
+    <div class="tech-float tech-float-1" aria-hidden="true"></div>
+    <div class="tech-float tech-float-2" aria-hidden="true"></div>
+    <div class="tech-float tech-float-3" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="tech-content reveal">
+        <span class="section-label">Tecnologia</span>
+        <h2 class="tech-title">
+          Digital Twin.<br>
+          Laser Scanning 3D.<br>
+          Il futuro dell'impianto<br>
+          <em>è già qui.</em>
+        </h2>
+        <p>Acquisizione laser 3D ad alta densità, modellazione BIM e digital twin per la gestione completa del ciclo di vita dell'impianto. Riduci i rischi, accelera i tempi, elimina le interferenze prima che esistano.</p>
+        <a href="#contact" class="btn btn-primary" style="margin-top:2.5rem">Scopri di più →</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CTA
+  ══════════════════════════════════════ -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="cta-glow"></div>
+        <span class="section-label">Iniziamo</span>
+        <h2 class="cta-title">Pronto ad affrontare<br>la sfida?</h2>
+        <p class="cta-sub">Raccontaci il tuo progetto. I nostri ingegneri trovano le soluzioni che altri non immaginano, in ogni settore industriale.</p>
+        <a href="mailto:info@proecosrl.it" class="btn btn-primary btn-lg">Contattaci →</a>
+        <div class="cta-parlym">
+          <img src="https://raw.githubusercontent.com/PietroArzilli/proecosrl/main/parlym-logo.png" alt="Parlym Group" class="parlym-logo" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer style="border-top:1px solid var(--border);background:#0d0d0d;padding:2.5rem 0;">
+    <div class="container">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:2.5rem;">
+
+        <div>
+          <div style="margin-bottom:.75rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 310 72" height="40" style="display:block">
+              <circle cx="35.7" cy="35.7" r="35.4" fill="#ffffff"/>
+              <circle cx="35.7" cy="35.7" r="23.9" fill="#0d0d0d"/>
+              <rect x="27.2" y="27.9" width="16.6" height="16.6" rx="1" fill="#e87830"/>
+              <text x="82" y="53" font-family="'Montserrat',sans-serif" font-weight="400" font-size="38" letter-spacing="2"><tspan fill="#ffffff">PRO</tspan><tspan fill="#e87830">ECO</tspan></text>
+            </svg>
+          </div>
+          <div style="color:var(--t2);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;">We develop what others can't</div>
+          <div style="font-size:11px;font-weight:300;margin-top:.4rem;color:var(--t3);">Part of Parlym Group &middot; Proeco S.r.l.</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,auto);gap:1rem 3rem;">
+          <div>
+            <div style="font-size:10px;font-weight:500;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.18em;color:var(--t3);">Navigate</div>
+            <div style="display:flex;flex-direction:column;gap:.5rem;">
+              <a href="#" class="footer-link">Home</a>
+              <a href="#sectors" class="footer-link">Settori</a>
+              <a href="#technology" class="footer-link">Digital Eng.</a>
+              <a href="#about" class="footer-link">Team</a>
+              <a href="#contact" class="footer-link">Contatti</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:500;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.18em;color:var(--t3);">On this page</div>
+            <div style="display:flex;flex-direction:column;gap:.5rem;">
+              <a href="#hero" class="footer-link">Hero</a>
+              <a href="#sectors" class="footer-link">Settori</a>
+              <a href="#global" class="footer-link">Presenza globale</a>
+              <a href="#about" class="footer-link">Team</a>
+              <a href="#technology" class="footer-link">Tecnologia</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:500;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.18em;color:var(--t3);">Headquarters</div>
+            <div style="font-size:11px;font-weight:300;line-height:1.9;color:var(--t3);">
+              Via Cervese 162/D<br/>47122 Forlì (FC), Italy<br/><br/>
+              <a href="mailto:proeco@proecosrl.it" class="footer-link">proeco@proecosrl.it</a><br/>
+              <span style="color:var(--t2);">+39 0543 795830</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="border-top:1px solid var(--border);margin-top:1.5rem;padding-top:1.25rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;font-size:11px;font-weight:300;color:var(--t3);">
+        <span>© 2025 PROECO S.r.l. All rights reserved.</span>
+        <span>Website by Pubby S.r.l.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+
+  <!-- COBE globe -->
+  <script type="module">
+import createGlobe from 'https://esm.sh/cobe@0.6.3';
+(function() {
+  const canvas = document.getElementById('globe-canvas');
+  const svg    = document.getElementById('globe-svg');
+  if (!canvas || !svg) return;
+
+  const CITIES = [
+    { name: "Bristol",      lat: 51.45,  lng:  -2.59,  len: 44 },
+    { name: "Cherbourg",    lat: 49.64,  lng:  -1.62,  len: 36 },
+    { name: "Rouen",        lat: 49.44,  lng:   1.10,  len: 38 },
+    { name: "Bruxelles",    lat: 50.85,  lng:   4.35,  len: 42 },
+    { name: "Paris",        lat: 48.85,  lng:   2.35,  len: 36 },
+    { name: "Reims",        lat: 49.26,  lng:   4.03,  len: 30 },
+    { name: "St-Avold",     lat: 49.10,  lng:   6.70,  len: 32 },
+    { name: "Pau",          lat: 43.30,  lng:  -0.37,  len: 34 },
+    { name: "Lyon",         lat: 45.75,  lng:   4.83,  len: 32 },
+    { name: "Marseille",    lat: 43.30,  lng:   5.37,  len: 36 },
+    { name: "Toulon",       lat: 43.12,  lng:   5.93,  len: 30 },
+    { name: "Monaco",       lat: 43.74,  lng:   7.42,  len: 28 },
+    { name: "Milano",       lat: 45.46,  lng:   9.19,  len: 38 },
+    { name: "Bologna",      lat: 44.49,  lng:  11.34,  len: 34 },
+    { name: "Roma",         lat: 41.90,  lng:  12.50,  len: 36 },
+    { name: "Brindisi",     lat: 40.63,  lng:  17.94,  len: 32 },
+    { name: "Tarento",      lat: 40.46,  lng:  17.25,  len: 30 },
+    { name: "Gela",         lat: 37.06,  lng:  14.25,  len: 34 },
+    { name: "Casablanca",   lat: 33.59,  lng:  -7.62,  len: 40 },
+    { name: "Dakar",        lat: 14.69,  lng: -17.44,  len: 38 },
+    { name: "Conakry",      lat:  9.64,  lng: -13.58,  len: 36 },
+    { name: "Ouagadougou",  lat: 12.36,  lng:  -1.53,  len: 44 },
+    { name: "Abidjan",      lat:  5.35,  lng:  -4.00,  len: 38 },
+    { name: "Douala",       lat:  4.05,  lng:   9.70,  len: 36 },
+    { name: "Malabo",       lat:  3.75,  lng:   8.78,  len: 32 },
+    { name: "Port-Gentil",  lat: -0.72,  lng:   8.78,  len: 38 },
+    { name: "Pointe-Noire", lat: -4.78,  lng:  11.86,  len: 42 },
+    { name: "Djibouti",     lat: 11.59,  lng:  43.15,  len: 38 },
+    { name: "Pune",         lat: 18.52,  lng:  73.86,  len: 36 },
+    { name: "Chennai",      lat: 13.08,  lng:  80.27,  len: 38 },
+    { name: "Nantong",      lat: 32.03,  lng: 120.87,  len: 36 },
+  ];
+
+  let phi = 1.4, globe = null;
+  let dragging = false, lastX = 0, lastY = 0, lastTime = 0;
+  let phiOffset = 0, thetaOffset = 0, velPhi = 0, velTheta = 0;
+  let curPhi = 1.4, curTheta = 0.25;
+
+  canvas.addEventListener('pointerdown', e => {
+    dragging = true; lastX = e.clientX; lastY = e.clientY; lastTime = Date.now();
+    canvas.style.cursor = 'grabbing';
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const now = Date.now(), dt = Math.max(now - lastTime, 1);
+    const dx = e.clientX - lastX, dy = e.clientY - lastY;
+    velPhi   = Math.max(-0.12, Math.min(0.12, (dx / dt) * 0.35));
+    velTheta = Math.max(-0.06, Math.min(0.06, (dy / dt) * 0.12));
+    phiOffset   += dx / 280;
+    thetaOffset  = Math.max(-0.45, Math.min(0.45, thetaOffset + dy / 900));
+    lastX = e.clientX; lastY = e.clientY; lastTime = now;
+  });
+  canvas.addEventListener('pointerup', () => { dragging = false; canvas.style.cursor = 'grab'; });
+
+  const NS = 'http://www.w3.org/2000/svg';
+  const cityEls = CITIES.map(city => {
+    const g = document.createElementNS(NS, 'g');
+    g.style.cssText = 'transition:opacity 0.35s;';
+    g.setAttribute('opacity', '0');
+
+    const dot = document.createElementNS(NS, 'circle');
+    dot.setAttribute('r', '2.5');
+    dot.setAttribute('fill', '#e87830');
+    dot.setAttribute('filter', 'url(#glow-dot)');
+
+    const line1 = document.createElementNS(NS, 'line');
+    line1.setAttribute('stroke', 'rgba(232,120,48,0.65)');
+    line1.setAttribute('stroke-width', '0.8');
+
+    const line2 = document.createElementNS(NS, 'line');
+    line2.setAttribute('stroke', 'rgba(232,120,48,0.65)');
+    line2.setAttribute('stroke-width', '0.8');
+
+    const text = document.createElementNS(NS, 'text');
+    text.setAttribute('font-family', "'Inter',sans-serif");
+    text.setAttribute('font-size', '8');
+    text.setAttribute('font-weight', '500');
+    text.setAttribute('letter-spacing', '0.09em');
+    text.setAttribute('fill', '#c8c4c0');
+    text.setAttribute('paint-order', 'stroke');
+    text.setAttribute('stroke', 'rgba(7,8,12,0.9)');
+    text.setAttribute('stroke-width', '2.5');
+    text.setAttribute('stroke-linejoin', 'round');
+    text.textContent = city.name.toUpperCase();
+
+    g.append(dot, line1, line2, text);
+    svg.appendChild(g);
+    return { g, dot, line1, line2, text };
+  });
+
+  const defs = document.createElementNS(NS, 'defs');
+  defs.innerHTML = `<filter id="glow-dot" x="-200%" y="-200%" width="500%" height="500%">
+    <feGaussianBlur stdDeviation="2" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>`;
+  svg.insertBefore(defs, svg.firstChild);
+
+  function project(lat, lng, phi, theta, cx, cy, R) {
+    const latR = lat * Math.PI / 180, lngR = lng * Math.PI / 180;
+    const gx =  Math.cos(latR) * Math.cos(lngR);
+    const gy =  Math.sin(latR);
+    const gz = -Math.cos(latR) * Math.sin(lngR);
+    const cp = Math.cos(phi), sp = Math.sin(phi);
+    const ct = Math.cos(theta), st = Math.sin(theta);
+    const fx =  cp * gx              + sp * gz;
+    const fy =  sp * st * gx + ct * gy - cp * st * gz;
+    const fz = -sp * ct * gx + st * gy + cp * ct * gz;
+    return { sx: cx + R * fx, sy: cy - R * fy, visible: fz > 0.05 };
+  }
+
+  function updateLabels() {
+    const rect = svg.getBoundingClientRect();
+    const W = rect.width;
+    if (W === 0) return;
+    svg.setAttribute('viewBox', `0 0 ${W} ${W}`);
+    const cx = W / 2, cy = W / 2, R = W * 0.4;
+    const scale = Math.min(1, W / 380);
+    const fontSize = Math.max(6, Math.round(8 * scale));
+    const dotR = Math.max(1.8, 2.5 * scale);
+    const hlen = Math.max(10, Math.round(16 * scale));
+
+    CITIES.forEach((city, i) => {
+      const el = cityEls[i];
+      const { sx, sy, visible } = project(city.lat, city.lng, curPhi, curTheta, cx, cy, R);
+
+      if (!visible) { el.g.setAttribute('opacity', '0'); return; }
+
+      el.dot.setAttribute('r', dotR.toFixed(1));
+      el.dot.setAttribute('cx', sx.toFixed(1));
+      el.dot.setAttribute('cy', sy.toFixed(1));
+      el.text.setAttribute('font-size', fontSize);
+
+      const dx = sx - cx, dy = sy - cy;
+      const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      const nx = dx / dist, ny = dy / dist;
+
+      const len = city.len * scale;
+      const ex = sx + nx * len;
+      const ey = sy + ny * len;
+      const goRight = nx >= 0;
+      const tx = ex + (goRight ? hlen : -hlen);
+
+      el.line1.setAttribute('x1', sx.toFixed(1)); el.line1.setAttribute('y1', sy.toFixed(1));
+      el.line1.setAttribute('x2', ex.toFixed(1)); el.line1.setAttribute('y2', ey.toFixed(1));
+      el.line2.setAttribute('x1', ex.toFixed(1)); el.line2.setAttribute('y1', ey.toFixed(1));
+      el.line2.setAttribute('x2', tx.toFixed(1)); el.line2.setAttribute('y2', ey.toFixed(1));
+      el.text.setAttribute('x', (tx + (goRight ? 3 : -3)).toFixed(1));
+      el.text.setAttribute('y', (ey - 3).toFixed(1));
+      el.text.setAttribute('text-anchor', goRight ? 'start' : 'end');
+      el.g.setAttribute('opacity', '1');
+    });
+  }
+
+  function init() {
+    const w = canvas.offsetWidth;
+    if (w === 0) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    globe = createGlobe(canvas, {
+      devicePixelRatio: dpr,
+      width:  w * dpr,
+      height: w * dpr,
+      phi: 1.4,
+      theta: 0.25,
+      dark: 1,
+      diffuse: 1.4,
+      mapSamples: 14000,
+      mapBrightness: 6,
+      baseColor:   [0.07, 0.09, 0.16],
+      markerColor: [0.91, 0.47, 0.19],
+      glowColor:   [0.14, 0.07, 0.01],
+      markers: CITIES.map(c => ({ location: [c.lat, c.lng], size: 0.03 })),
+      onRender(state) {
+        if (!dragging) {
+          phi += 0.0025;
+          if (Math.abs(velPhi)   > 0.0001) { phiOffset   += velPhi;   velPhi   *= 0.93; }
+          if (Math.abs(velTheta) > 0.0001) { thetaOffset += velTheta; velTheta *= 0.93; }
+        }
+        state.phi   = phi + phiOffset;
+        state.theta = 0.25 + thetaOffset;
+        curPhi   = state.phi;
+        curTheta = state.theta;
+        const w2 = canvas.offsetWidth;
+        if (w2 > 0) { state.width = state.height = w2 * dpr; }
+        updateLabels();
+      },
+    });
+
+    requestAnimationFrame(() => { canvas.style.opacity = '1'; });
+  }
+
+  function tryInit() {
+    if (canvas.offsetWidth > 0) { init(); return; }
+    const ro = new ResizeObserver(entries => {
+      if (entries[0]?.contentRect.width > 0) { ro.disconnect(); init(); }
+    });
+    ro.observe(canvas);
+    setTimeout(() => { if (!globe && canvas.offsetWidth > 0) init(); }, 400);
+  }
+
+  document.readyState === 'complete' ? tryInit() : window.addEventListener('load', tryInit);
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { if (globe) { globe.destroy(); globe = null; } init(); }, 150);
+  }, { passive: true });
+  window.addEventListener('beforeunload', () => { if (globe) globe.destroy(); });
+})();
+  </script>
+</body>
+</html>
